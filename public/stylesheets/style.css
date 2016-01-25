@@ -1,0 +1,133 @@
+.page-header{
+    font-family: 'Josefin Sans', serif;
+    font-weight:600;
+}
+.jumotext{
+    position:absolute;
+    top:.5em;
+    left:3ch;
+    font-size:2em;
+}
+.inner{
+    position:absolute;
+    top:1.6em;
+    left:6ch;
+    font-size:2em;
+}
+.regbtn{
+    position:absolute;
+    font-size:2em;
+    top:12em;
+    left: 13ch;
+    z-index: 5;
+}
+.homeInfo{
+    font-weight:400;
+}
+.name{
+    font-weight:600;
+}
+.schemBut, #addProperty{
+    background: #337AB7 !important;
+}
+.input-group-addon{
+    background-color: #337ab7 !important;
+}
+.input-group-addon > * {
+    vertical-align: middle;
+}
+.objname{
+    font-size:17px !important;
+    padding-top:1em;
+}
+.cardHeader{
+    padding:0;
+    margin:0;
+    text-align: right;
+}
+.component{
+    text-align: center;
+}
+.component a{
+    font-size:19px;
+    padding-bottom:0;
+}
+
+.cardFooter{
+    padding-top: 0 !important;
+    padding-bottom: 0 !important;
+}
+.cardFooter a {
+    text-align: center;
+}
+.helpText{
+    padding-top:0;
+}
+.helpText, .helpText h3, .helpText h4{
+    padding-top:0;
+    text-align:center;
+}
+.schemEdit{
+    padding-bottom:10px;
+}
+.propEdit{
+    font-size:20px;
+}
+.form-group.row button,
+.action{
+    margin-top: 5%;
+
+}
+.actionc{
+    margin-top:6% !important;
+}
+.addit{
+    padding-bottom: 2% !important;
+}
+
+.identity{
+    margin-bottom:0% !important;
+}
+.form-group.col-md-12{
+    padding-left:0;
+    padding-right:0;
+}
+.searchAid{
+    font-size: 25px;
+}
+.remove{
+    background: #d9534f !important;
+    padding:8px 12px 8px 12px !important;
+}
+.remgly{
+
+    top: 8px!important;
+    font-size:25px;
+    line-height: .25!important;
+}
+.searchIn{
+    margin-left: 0 !important;
+}
+#addEntity{
+    background-color:#2b3e50 !important;
+    border:1px solid #4e5d6c;
+    border-radius: 3px;
+}
+#addEntity:hover{
+    background-color: #1f303e !important;
+}
+.editFooter{
+    margin-top: 21%;
+}
+.editBody{
+    padding-top:5% !important;
+    padding-left:0;
+    padding-right:0;
+}
+.propEdit{
+    padding-top:5%;
+    text-align:center;
+}
+.addBody{
+    overflow:hidden;
+}

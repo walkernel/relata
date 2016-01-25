@@ -1,0 +1,100 @@
+extends layout
+
+block content
+    .container
+        form.form-inline.search()
+            .well.text-center
+                .form-group.form-group-lg
+                    label.searchAid I need the #{objName}
+                    label.searchAid &nbspwith the&nbsp;
+
+                .form-group.form-group-lg
+                    select.input.form-control.input-lg#property(name='property')
+                        option(value='#{identifier}' selected) #{decodeURI(identifier)}
+                        each property in properties
+                            option(value='#{property}') #{decodeURI(property)}
+
+
+                .form-group.form-group-lg
+                    label.searchAid &nbspof&nbsp;
+                .form-group.form-group-lg
+                    .input-group
+                        input.input.input-lg#value(list='valueList' name='value')
+                        datalist#valueList
+
+                        .input-group-btn.input-group-lg.searchIn
+                            button#searchButton.btn.btn-lg.btn-primary.searchBtn(type='button') Search
+         .cardTainer.col-xs-12
+    .col-xs-2.col-xs-offset-5
+        button#addEntity.col-xs-12.btn.btn-default(type="button" data-toggle='modal' data-target='#addModal') Add Entity
+
+    #editModal.modal.fade(role='dialog')
+        .modal-dialog
+            // Modal content
+            .modal-content
+                .modal-header
+                    button.close(type='button', data-dismiss='modal') ×
+                    h4
+                        span.glyphicon.glyphicon-edit
+                        | Editing&nbsp;
+                        span#editHead
+                .modal-body.editBody
+                    form#editForm(role='form', action='', method='post')
+                        .edit.col-xs-12
+                .modal-footer.editFooter
+                        button.btn.btn-warning.col-xs-5(type='button', data-dismiss='modal')
+                            span.glyphicon.glyphicon-remove-sign
+                            |  Cancel
+                        button.btn.btn-success.editSub.col-xs-7(type='submit')
+                            span.glyphicon.glyphicon-ok-sign
+                            |  Save
+    #deleteModal.modal.fade(role='dialog')
+        .modal-dialog
+            // Modal content
+            .modal-content
+                .modal-header
+                    button.close(type='button', data-dismiss='modal') ×
+                    h4
+                        span.glyphicon.glyphicon-trash
+                        | Deleting&nbsp;
+                        span#delete
+                .modal-body
+                    form(role='form', action='', method='post')
+                        h3.component Are you sure you want to delete&nbsp;
+                            span#modSpanName
+                            |?
+                .modal-footer
+                    button.btn.btn-warning.col-xs-5(type='button', data-dismiss='modal')
+                        span.glyphicon.glyphicon-remove-sign
+                        |  Cancel
+                    button.btn.btn-success.delSub.col-xs-7(type='submit')
+                        span.glyphicon.glyphicon-ok-sign
+                        |  Delete
+
+    #addModal.modal.fade(role='dialog')
+        .modal-dialog
+            // Modal content
+            .modal-content
+                .modal-header
+                    button.close(type='button', data-dismiss='modal') ×
+                    h4
+                        span.glyphicon.glyphicon-check
+                        | Add an object
+                .modal-body.editBody.addBody
+                    form#addForm(role='form', action='', method='post')
+                        .add.col-xs-12
+                            .col-md-10.col-md-offset-1
+                                label(for='0').col-xs-12.propEdit #{decodeURI(identifier)}
+                                input#0(name='inputident' required).entityInput.col-xs-12
+                            each property, idx  in properties
+                                .col-md-6
+                                    label( for='ident').col-xs-12.propEdit #{decodeURI(property)}
+                                    input(id="#{idx+1}" name='inputident' list="#{idx}+list").entityInput.col-xs-12
+                                    datalist.entityList(id="#{idx}+list")
+                .modal-footer
+                    button.btn.btn-warning.col-xs-5(type='button', data-dismiss='modal')
+                        span.glyphicon.glyphicon-remove-sign
+                        |  Cancel
+                    button.btn.btn-success.addSub.col-xs-7(type='submit')
+                        span.glyphicon.glyphicon-ok-sign
+                        |  Save

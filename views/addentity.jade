@@ -1,0 +1,24 @@
+extends layout
+
+block content
+    .container
+        br
+        .jumbotron.addit
+            form#add()
+                .form-group.col-md-12
+                    .col-xs-12.identity
+                        label.component.col-xs-10.col-xs-offset-1.propEdit(for='#{identifier}') #{identifier}
+                        .row
+                            input.input.input-lg(id='#{identifier}').col-xs-10.col-xs-offset-1
+
+                each property, idx in properties
+                    .col-md-6
+                        label.component.col-xs-10.col-xs-offset-1.propEdit(for='#{property}') #{property}
+                        .row
+                        input(list='#{property}List' id='#{idx}' ).entityInput.col-xs-10.col-xs-offset-1
+                        datalist(id='#{property}List').entityList
+                .form-group.row
+                    .col-md-6.col-xs-offset-6
+                        .row
+                            button.action.actionc.btn.btn-danger.col-xs-3.col-xs-offset-2    Cancel
+                            button.action.btn.btn-lg.btn-primary.col-xs-5.col-xs-offset-1 Submit

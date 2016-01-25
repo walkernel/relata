@@ -1,0 +1,22 @@
+extends layout
+
+block content
+    .container
+        h1 Editing #{identifier}
+
+        br
+        .jumbotron.addit
+            form()
+                each property, idx in properties
+                    .col-md-6
+                        label.col-xs-offset-1.propEdit(for='#{property.propertyName}') #{property.propertyName}
+                        .row
+                            input(list='#{property.propertyName}List' id='#{property.propertyName}').entityInput.col-xs-10.col-xs-offset-1
+                            if property.shared
+                                datalist.entityList(id='#{property.propertyName}List')
+                .form-group.row
+                    .col-md-6.col-xs-offset-6
+                        .row
+                            button.action.actionc.btn.btn-danger.col-xs-3.col-xs-offset-2    Cancel
+                            button.action.btn.btn-lg.btn-primary.col-xs-5.col-xs-offset-1 Submit
+

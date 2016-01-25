@@ -1,0 +1,39 @@
+extends layout
+block content
+    .container
+
+        .col-md-4
+            .panel.panel-default
+                .panel-heading
+                    h3.cardHeader  Identifier
+                .panel-body
+                    .blockquote.col-md-6.component
+                        a.propVal Value One
+                        footer property One
+                    .blockquote.col-md-6.component
+                        a.propVal Value Two
+                        footer property Two
+                .panel-footer.cardFooter
+                    .row
+                         a.col-xs-6 Edit
+                         a.col-xs-6(data-toggle="modal" data-target= "#deleteModal") Delete
+
+    #deleteModal.modal.fade(role='dialog')
+        .modal-dialog
+            // Modal content
+            .modal-content
+                .modal-header(style='padding:35px 50px;')
+                    button.close(type='button', data-dismiss='modal') ×
+                    h4
+                        span.glyphicon.glyphicon-edit
+                        |  Delete Entity
+                .modal-body(style='padding:40px 50px;')
+                    form(role='form' action='/accounts/register' method='post')
+                        h2.text-center Are you sure you want to delete ?
+                        h3.text-center.text-danger This cannot be undone
+                        h3 &nbsp;
+                        .row
+                            button.col-md-5.btn.btn-info(type='button', data-dismiss='modal') Cancel
+                            button.col-md-5.col-md-offset-2.btn.btn-danger(type='button') Confirm <br />
+                .modal-footer(style='padding:20px 20px;')
+                    p &nbsp;

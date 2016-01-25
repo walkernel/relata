@@ -1,0 +1,43 @@
+extends layout
+
+block content
+    .container.well.well-lg
+        h2.helpText.col-xs-12 We first need to create an object to track. What object would you like to track?
+        form#schemForm.form(action='/schema' method='post')
+
+            .form-group.col-xs-6.col-xs-offset-3
+                label.objname(for='objectName') Object Name
+                .row
+                    .schemEdit.input-group.col-xs-12
+                        input#objectName.form-control(type='text' name='objectName' placeholder='Object Name')
+                        span.input-group-btn
+                                    button.schemBut.btn(type="button" data-toggle="collapse" data-target="#secondStep") Next
+
+            #secondStep.collapse.col-xs-12
+                .row.helpText
+                    h3 What is the main identifier for this object <br />
+                    h4 ( A Phone's Identifier would be a phone number, a person's identifier would be their name.)
+                .form-group.col-xs-6.col-xs-offset-3
+                    label.objname(for='objectId') Object Identifier
+                    .row
+                        .schemEdit.input-group.col-xs-12
+                            input#objectId.form-control(type='text' name='objectId' placeholder='Identifier')
+                            span.input-group-btn
+                                button.schemBut.btn(type="button" data-toggle="collapse" data-target="#nextStep") Next
+
+
+
+            #nextStep.collapse.col-xs-12
+                .row
+                    h3.helpText Now add the properties of the object that you want to keep track of.
+                #objs
+
+                    #prop.form-group.col-xs-6.col-xs-offset-3
+                        label.objname(for='property1Name') Property Name
+                        .row
+                            .schemEdit.input-group.col-xs-12
+                                input#property1Name.form-control(type='text' name='property1name' placeholder='Property Name')
+                .row
+                    .form-group.col-xs-12
+                        button.btn.btn-lg.col-xs-2(type="button" id="addProperty") Add Property
+                        button.btn.btn-lg.btn-success.col.xs-2.col-xs-offset-8(id="submitProperty") Submit
