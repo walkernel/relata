@@ -176,7 +176,7 @@ $(document).ready(function(){
 
 				for( var x = 0; x < data.length; x++ ) {
 
-					$( e.target ).siblings( ".entityList" ).append( '<option>' + data[x] + '</option>' );
+					$( e.target ).siblings( ".entityList" ).append( '<option>' + decodeURI(data[x]) + '</option>' );
 				}
 			} );
 

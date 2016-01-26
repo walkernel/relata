@@ -4,7 +4,6 @@ var favicon = require('serve-favicon');
 var logger = require('morgan');
 var session = require('express-session');
 var cookieParser = require('cookie-parser');
-var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 var compress = require('compression');
 var mongoose = require('mongoose');
