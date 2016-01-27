@@ -10,7 +10,15 @@ router.get( '/', function ( req, res, next ){
 			{ $project : { properties : "$properties", identifier : "$identifier", objName:"$objName"  } }],
 		function ( err, data ){
 			if( err ) console.log( err );
-			res.render( "search", { properties : data[0].properties,identifier : data[0].identifier, objName:data[0].objName} );
+			if(data) {
+				res.render( "search", {
+					properties : data[0].properties,
+					identifier : data[0].identifier,
+					objName :    data[0].objName
+				} );
+			} else{
+				res.redirect('../');
+			}
 		} )
 } );
 
@@ -32,7 +40,11 @@ router.post( '/property', function ( req, res, next ){
 			}],
 
 		function ( err, data ){
+			if(data){
 			res.json(data[0].vals);
+			} else{
+				res.redirect('../')
+			}
 		}
 	);
 } );
@@ -42,7 +54,11 @@ router.get('/get',function(req, res, next){
 			{ $project : { properties : "$properties", identifier : "$identifier" } }],
 		function ( err, data ){
 			if( err ) console.log( err );
-			res.json({properties : data[0].properties, identifier : data[0].identifier } );
+			if(data) {
+				res.json( { properties : data[0].properties, identifier : data[0].identifier } );
+			} else {
+				res.redirect('../')
+			}
 		})
 
 });
@@ -83,7 +99,6 @@ router.post( '/objects', function ( req, res, next ){
 	}
 	var sendCheck = function ( err, data ){
 		if( err ) console.log( err );
-		console.log( data );
 		if( data[0].vals[0] ) {
 			res.json( data[0].vals );
 		}
