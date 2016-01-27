@@ -5,7 +5,10 @@ var router       = express.Router();
 
 /* GET home page. */
 router.get( '/', function ( req, res, next ) {
-	res.render( 'schema' );
+	if(req._passport.session.user) res.render( 'schema' );
+	else{
+		res.redirect("../")
+	}
 } );
 
 //gets object info, and property info, splits them, and updates mongodb
